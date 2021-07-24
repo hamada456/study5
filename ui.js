@@ -19,12 +19,18 @@
         //クリックされたnavとそのdataを取得
         const $this = e.target;
         const targetVal = $this.dataset.nav;
-        console.log("targeyVal", targetVal);
+
+        //対象外のnav,content全て一旦リセットする
+        let index = 0;
+        while(index < $nav.length){
+            $content[index].style.display = "none";
+            $nav[index].classList.remove("is-active");
+            index++;
+        }
 
         //対象のコンテンツをアクティブ化する
         $tab.querySelectorAll("[data-content='" + targetVal + "']")[0].style.display = "block";
         $nav[targetVal].classList.add("is-active");
-        console.log("$nav[targetVal].classList",$nav[targetVal].classList);
 
     };
 
